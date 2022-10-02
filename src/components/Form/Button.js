@@ -1,4 +1,4 @@
-const Buttons = ({name, type}) => {
+const Button = ({name, type}) => {
     return (
         <button type={type}> 
             {name}
@@ -6,4 +6,4 @@ const Buttons = ({name, type}) => {
     )
 }
 
-export default Buttons
+export default Button

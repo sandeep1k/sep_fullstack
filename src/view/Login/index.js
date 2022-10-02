@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from '../../components/Form';
-import Buttons from '../../components/Form/Buttons' 
+import Button from '../../components/Form/Button' 
 const Login = () => {
     const initialValues = {username: '', email:'', password:''}
     const [values, setValues] = useState(initialValues);
@@ -64,7 +64,6 @@ const Login = () => {
                     name="username"
                     handleChange={handleChange} 
                     formErrors={formErrors.username}
-                    styles="red"
                 />
 
                 <Form label="Email"
@@ -76,14 +75,14 @@ const Login = () => {
                     
                 />
 
-                 <Form label="Password"
+                <Form label="Password"
                 type="password"
                 value={values.password}
                 name="password"
                 handleChange={handleChange} 
                 formErrors={formErrors.password}
                 />
-                <Buttons type="submit" name="Submit" />
+                <Button type="submit" name="Submit" />
           
             </form>
             </>
