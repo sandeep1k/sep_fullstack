@@ -63,6 +63,7 @@ const Login = () => {
                     name="username"
                     handleChange={handleChange} 
                     formErrors={formErrors.username}
+                    styles="red"
                 />
 
                 <Form label="Email"
@@ -70,7 +71,8 @@ const Login = () => {
                 value={values.email}
                 name="email"
                 handleChange={handleChange} 
-                formErrors={formErrors.email}
+                    formErrors={formErrors.email}
+                    
                 />
 
                  <Form label="Password"
