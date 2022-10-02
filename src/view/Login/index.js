@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from '../../components/Form';
+import Buttons from '../../components/Form/Buttons' 
 const Login = () => {
     const initialValues = {username: '', email:'', password:''}
     const [values, setValues] = useState(initialValues);
@@ -82,8 +83,8 @@ const Login = () => {
                 handleChange={handleChange} 
                 formErrors={formErrors.password}
                 />
-            
-            <button type="submit"> Submit </button>
+                <Buttons type="submit" name="Submit" />
+          
             </form>
             </>
     )
