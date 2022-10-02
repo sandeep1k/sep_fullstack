@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Form from '../../components/Form';
 const Login = () => {
     const initialValues = {username: '', email:'', password:''}
     const [values, setValues] = useState(initialValues);
@@ -55,21 +55,31 @@ const Login = () => {
                 <pre>{JSON.stringify(values, null, 2)}</pre>
             )}
            
-        <form onSubmit={handleSubmit}>
-            <label> Name : </label>
-            <input type="text" value={values.username} name="username" onChange={handleChange} /> 
-            <p style={{color:'red'}}>{formErrors.username}</p>
-            <br />
-           
-            <label> Email : </label>
-            <input type="text" value={values.email} name="email" onChange={handleChange} /> 
-            <p style={{color:'red'}}>{ formErrors.email}</p>
-            <br />
-           
-            <label> Password : </label>
-            <input type="password" value={values.password} name="password" onChange={handleChange} />
-            <p style={{color:'red'}}>{formErrors.password}</p>
-            <br />
+            <form onSubmit={handleSubmit}>
+               
+                <Form label="Name"
+                    type="text"
+                    value={values.username}
+                    name="username"
+                    handleChange={handleChange} 
+                    formErrors={formErrors.username}
+                />
+
+                <Form label="Email"
+                type="text"
+                value={values.email}
+                name="email"
+                handleChange={handleChange} 
+                formErrors={formErrors.email}
+                />
+
+                 <Form label="Password"
+                type="password"
+                value={values.password}
+                name="password"
+                handleChange={handleChange} 
+                formErrors={formErrors.password}
+                />
             
             <button type="submit"> Submit </button>
             </form>

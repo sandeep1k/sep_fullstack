@@ -1,7 +1,16 @@
 
-const Form = type => {
+const Form = ({label, type, value, name, handleChange, formErrors}) => {
+    
+
+
     return (
-        <input type={ type || 'text'} />
+        <>
+            <label> {label} : </label>
+            <input type={type} value={value}
+                name={name}
+                onChange={handleChange} /> 
+            <p style={{color:'red'}}>{formErrors}</p>
+        </>
     )
 }   
 
