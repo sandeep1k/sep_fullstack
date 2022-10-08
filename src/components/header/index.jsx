@@ -1,23 +1,36 @@
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import brandLogo from "../../assets/images/logo.png"
 const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand me-auto" href="/#">Navbar</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                <NavLink className="navbar-brand me-auto" to="/">
+                    <img src={brandLogo} alt='' width="200" />
+                </NavLink>
+
                 <div className="d-flex">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/">Home</Link>
+                            <NavLink className="nav-link active" to="/" style={({ isActive }) => ({
+                                color: isActive ? 'green' : '#000'
+                            })}>
+                                Home
+                            </NavLink>
+                            {/* <NavLink className="nav-link active" to="/">Home</NavLink> */}
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/products">Product</Link>
+                            <NavLink className="nav-link active" to="/products"
+                                style={({ isActive }) => ({
+                                    color: isActive ? 'green' : '#000'
+                                })}
+                            >Product</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/contact">Contact</Link>
+                            <NavLink className="nav-link active" to="/contact"
+                                style={({ isActive }) => ({
+                                    color: isActive ? 'green' : '#000'
+                                })}
+                            >Contact</NavLink>
                         </li>
                     </ul>
                 </div>
