@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Header from './components/header'
 import Footer from './components/footer'
@@ -9,19 +9,16 @@ import Contact from './view/contact'
 import PageNotFound from './view/pagenofound'
 
 
-
 const App = () => {
   return (
     <div className="App">
-    <Header />
-      <Router>
-        <Routes> 
+      <Header />
+      <Routes> 
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
+      </Routes>
     <Footer />
     </div>
   );
