@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import mobile1 from "../../assets/images/mobile1.jpg"
-import mobile2 from "../../assets/images/mobile2.jpg"
+
 
 const Products = () => {
     const [data, setData] = useState([]);

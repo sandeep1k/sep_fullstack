@@ -6,15 +6,17 @@ import Sliders from '../../components/sliders'
 
 const Home = () => {
     const [data, setData] = useState([])
-
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         getData()
     }, [])
 
     const getData = async () => {
         try {
+            setLoading(true);
             const res = await axios.get("https://api.escuelajs.co/api/v1/categories");
             setData(res.data);
+            setLoading(false);
         }
         catch (err) {
             console.log('=>', err)
@@ -22,9 +24,10 @@ const Home = () => {
     }
 
     return (
-        <>
-            <Sliders />
-            <h1> Categories</h1>
+        <><h1 className='text-center'> {loading ? ' Loading...' : ''}</h1>
+            {loading ? '' : <Sliders />}
+
+            <h1>{loading ? '' : 'Categories'}</h1>
             <div className='row'>
                 {data && data.map(item => (
                     <div className='col-2' key={item.id}>
