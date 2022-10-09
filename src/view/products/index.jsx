@@ -39,6 +39,7 @@ const Products = () => {
                                 <h4> {item.title.slice(0, 18)}...</h4>
                                 <p> {item.description.slice(0, 55)}... </p>
                                 <p className='text-success'>${item.price}</p>
+                                <button className='btn btn-primary'> View Details</button>
                             </div>
                         </div>
                     ))}
