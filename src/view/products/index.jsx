@@ -26,11 +26,11 @@ const Products = () => {
         <div className='row'>
             <h1 className='text-center'> {loading ? ' Loading...' : ''}</h1>
             <div className='col-3'>
-                <h2>Filters</h2>
+                <h2>{loading ? '' : 'Filters'}</h2>
             </div>
             <div className='col-9'>
                 <div className='row'>
-                    <h1> Products</h1>
+                    <h1>  {loading ? '' : 'Products'}</h1>
 
                     {data && data.map(item => (
                         <div className="col-3 mb-4" key={item.id}>
@@ -43,9 +43,6 @@ const Products = () => {
                             </div>
                         </div>
                     ))}
-
-
-
                 </div>
 
             </div>
