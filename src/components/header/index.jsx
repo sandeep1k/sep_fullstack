@@ -11,22 +11,23 @@ const Header = () => {
                 <div className="d-flex">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink className="nav-link active" to="/" style={({ isActive }) => ({
-                                color: isActive ? 'green' : '#000'
-                            })}>
+                            <NavLink className="nav-link" to="/"
+                                style={({ isActive }) => ({
+                                    color: isActive ? 'green' : '#000'
+                                })}>
                                 Home
                             </NavLink>
                             {/* <NavLink className="nav-link active" to="/">Home</NavLink> */}
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link active" to="/products"
+                            <NavLink className="nav-link" to="/products"
                                 style={({ isActive }) => ({
                                     color: isActive ? 'green' : '#000'
                                 })}
                             >Product</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link active" to="/contact"
+                            <NavLink className="nav-link" to="/contact"
                                 style={({ isActive }) => ({
                                     color: isActive ? 'green' : '#000'
                                 })}
