@@ -7,6 +7,7 @@ import Sliders from '../../components/sliders'
 const Home = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         getData()
     }, [])
@@ -24,14 +25,15 @@ const Home = () => {
     }
 
     return (
-        <><h1 className='text-center'> {loading ? ' Loading...' : ''}</h1>
+        <>
+            <h1 className='text-center'> {loading ? ' Loading...' : ''}</h1>
             {loading ? '' : <Sliders />}
 
             <h1>{loading ? '' : 'Categories'}</h1>
             <div className='row'>
                 {data && data.map(item => (
                     <div className='col-2' key={item.id}>
-                        <Link to=''>
+                        <Link to={`products/${item.name}`}>
                             <div className='card card-body text-center'>
                                 <img src={item.image} alt={item.name} />
                                 <h4 className='pt-3'> {item.name}</h4>

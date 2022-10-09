@@ -2,7 +2,7 @@ import banners from "../../assets/images/banner.jpg"
 
 const Sliders = () => {
     return (
-        <img src={banners} alt="" width="100%" />
+        <img src={banners} style={{ objectFit: 'cover' }} alt="" width="100%" height="400" />
     )
 }
 
