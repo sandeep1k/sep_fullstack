@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-
 import { useParams, useNavigate } from 'react-router-dom';
+import Pagination from '../../components/pagination'
 
 const Products = () => {
     const [data, setData] = useState([]);
@@ -54,7 +54,9 @@ const Products = () => {
                         </div>
                     ))}
                 </div>
-
+                <div className='row'>
+                    <Pagination />
+                </div>
             </div>
         </div>
 
