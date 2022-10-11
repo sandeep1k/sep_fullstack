@@ -28,7 +28,6 @@ const Products = () => {
 
     const viewDetails = ({ id }) => {
         if (id) {
-            console.log(id)
             navigate(`/products/single-product/${id}`)
         }
     }
@@ -44,6 +43,7 @@ const Products = () => {
                 <div className='col-9'>
                     <div className='row'>
                         <h2>  {loading ? '' : `Products`}</h2>
+
                         {data && data.filter(item => item.category.name === param.itemId).map(item => (
                             <div className="col-3 mb-4" key={item.id}>
                                 <div className='card card-body'>
@@ -56,6 +56,8 @@ const Products = () => {
                                 </div>
                             </div>
                         ))}
+
+
                     </div>
                     <div className='row'>
                         <Pagination />
