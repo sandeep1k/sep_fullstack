@@ -7,18 +7,26 @@ import Filters from '../../components/filters';
 const Products = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const param = useParams();
+    const params = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        getData()
-    }, [])
+        getData(params)
 
-    const getData = async () => {
+    }, [params])
+
+    const getData = async (queryParams) => {
         try {
+            let filterData = [];
+            const { itemId } = queryParams
+
             setLoading(true);
             const res = await axios.get("https://api.escuelajs.co/api/v1/products");
-            setData(res.data);
+            filterData = res.data;
+            if (itemId) {
+                filterData = res.data.filter(item => item.category.name === params.itemId)
+            }
+            setData(filterData);
             setLoading(false);
         }
         catch (err) {
@@ -31,6 +39,7 @@ const Products = () => {
             navigate(`/products/single-product/${id}`)
         }
     }
+
     return (
         <div className='container-fluid'>
             <div className='row'>
@@ -44,7 +53,7 @@ const Products = () => {
                     <div className='row'>
                         <h2>  {loading ? '' : `Products`}</h2>
 
-                        {data && data.filter(item => item.category.name === param.itemId).map(item => (
+                        {data && data.map(item => (
                             <div className="col-3 mb-4" key={item.id}>
                                 <div className='card card-body'>
                                     <img src={item?.images} alt='' />
@@ -56,7 +65,6 @@ const Products = () => {
                                 </div>
                             </div>
                         ))}
-
 
                     </div>
                     <div className='row'>
