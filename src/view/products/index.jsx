@@ -7,6 +7,15 @@ import Filters from '../../components/filters';
 const Products = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [showPerPage, setShowPerPage] = useState(10);
+    const [pagination, setPagination] = useState({
+        start: 0,
+        end: showPerPage,
+    });
+
+    const onPaginationChange = (start, end) => {
+        setPagination({ start: start, end: end });
+    };
     const params = useParams();
     const navigate = useNavigate();
 
@@ -53,7 +62,7 @@ const Products = () => {
                     <div className='row'>
                         <h2>  {loading ? '' : `Products`}</h2>
 
-                        {data && data.map(item => (
+                        {data && data.slice(pagination.start, pagination.end).map(item => (
                             <div className="col-3 mb-4" key={item.id}>
                                 <div className='card card-body'>
                                     <img src={item?.images} alt='' />
@@ -68,7 +77,11 @@ const Products = () => {
 
                     </div>
                     <div className='row'>
-                        <Pagination />
+                        <Pagination
+                            showPerPage={showPerPage}
+                            onPaginationChange={onPaginationChange}
+                            total={data?.length}
+                        />
                     </div>
                 </div>
             </div>
